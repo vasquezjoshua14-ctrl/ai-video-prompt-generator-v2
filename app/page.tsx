@@ -3,67 +3,87 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [style, setStyle] = useState("honest-review");
-  const [language, setLanguage] = useState("Taglish");
-  const [dialogue, setDialogue] = useState(true);
-  const [result, setResult] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [prompt, setPrompt] = useState("");
 
   async function generate() {
-    setLoading(true);
-    setResult("");
-
     const res = await fetch("/api/generate", {
       method: "POST",
-      body: new FormData(),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: "Generate AI video prompt",
+      }),
     });
 
     const data = await res.json();
-
-    setResult(data.result || data.error);
-    setLoading(false);
+    setPrompt(data.prompt || "No response");
   }
 
   return (
-    <main style={{ padding: 40 }}>
-      <h1>AI Video Prompt Generator HYUNA</h1>
+    <main className="min-h-screen bg-pink-50 p-6">
 
-      <label>Style</label>
-      <select value={style} onChange={(e)=>setStyle(e.target.value)}>
-        <option value="honest-review">Honest Review</option>
-        <option value="hard-selling">Hard Selling</option>
-        <option value="viral-hype">Viral Hype</option>
-      </select>
+      <h1 className="text-5xl font-bold text-pink-600 text-center">
+        AI Video Prompt Generator HYUNA ♡
+      </h1>
 
-      <br /><br />
+      <p className="text-center mt-4">
+        Turn your ideas into scroll-stopping AI video prompts!
+      </p>
 
-      <label>Language</label>
-      <select value={language} onChange={(e)=>setLanguage(e.target.value)}>
-        <option>Taglish</option>
-        <option>Filipino</option>
-        <option>English</option>
-      </select>
+      <div className="grid md:grid-cols-2 gap-6 mt-10">
 
-      <br /><br />
+        <div className="bg-white rounded-3xl p-6 shadow">
+          <h2 className="text-2xl font-bold">
+            1. Upload Your Files
+          </h2>
 
-      <label>
-        <input
-          type="checkbox"
-          checked={dialogue}
-          onChange={(e)=>setDialogue(e.target.checked)}
-        />
-        Dialogue ON
-      </label>
+          <input type="file" className="mt-4" />
+          <input type="file" className="mt-4" />
+          <input type="file" className="mt-4" />
+        </div>
 
-      <br /><br />
 
-      <button onClick={generate}>
-        {loading ? "Generating..." : "Generate Prompt"}
+        <div className="bg-white rounded-3xl p-6 shadow">
+          <h2 className="text-2xl font-bold">
+            2. Generation Settings
+          </h2>
+
+          <select className="mt-4 p-3 w-full">
+            <option>Honest Review</option>
+            <option>Product Selling</option>
+            <option>Storytelling</option>
+          </select>
+
+          <select className="mt-4 p-3 w-full">
+            <option>Taglish</option>
+            <option>English</option>
+            <option>Filipino</option>
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <button
+        onClick={generate}
+        className="mt-10 w-full rounded-full bg-gradient-to-r from-pink-500 to-blue-400 text-white text-2xl p-5"
+      >
+        ✨ Analyze & Generate ➜
       </button>
 
-      <pre style={{marginTop:30, whiteSpace:"pre-wrap"}}>
-        {result}
-      </pre>
+
+      <div className="bg-white rounded-3xl p-6 mt-8">
+        <h2 className="text-3xl font-bold text-purple-600">
+          ✨ Generated Prompt
+        </h2>
+
+        <p className="mt-4">
+          {prompt || "Your generated prompt will appear here"}
+        </p>
+      </div>
+
     </main>
   );
 }
