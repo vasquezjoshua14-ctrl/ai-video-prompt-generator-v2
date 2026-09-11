@@ -6,144 +6,92 @@ export default function Home() {
   const [prompt, setPrompt] = useState("");
 
   async function generate() {
-    const res = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        message: "Generate AI video prompt",
-      }),
-    });
+    try {
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "Generate AI video prompt",
+        }),
+      });
 
-    const data = await res.json();
-    setPrompt(data.prompt || "No response");
+      const data = await res.json();
+      setPrompt(data.prompt || "No response");
+    } catch {
+      setPrompt("Server error");
+    }
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 p-6">
+    <main className="min-h-screen bg-pink-50 p-6">
 
-      <section className="text-center mb-10">
-        <h1 className="text-5xl font-black text-pink-600">
-          AI Video Prompt Generator HYUNA ♡
-        </h1>
+      <h1 className="text-5xl font-bold text-pink-600 text-center">
+        AI Video Prompt Generator HYUNA ♡
+      </h1>
 
-        <p className="mt-4 text-lg">
-          Turn your ideas into scroll-stopping AI video prompts!
-        </p>
-      </section>
+      <p className="text-center mt-4">
+        Turn your ideas into scroll-stopping AI video prompts!
+      </p>
 
+      <div className="grid md:grid-cols-2 gap-6 mt-10">
 
-      <div className="grid md:grid-cols-2 gap-6">
-
-        <div className="bg-white rounded-3xl p-6 shadow-xl">
-          <h2 className="text-2xl font-bold text-purple-600">
-            📤 1. Upload Your Files
+        <div className="bg-white rounded-3xl p-6 shadow">
+          <h2 className="text-2xl font-bold">
+            1. Upload Your Files
           </h2>
 
-          <div className="mt-5 space-y-4">
-            <input type="file" className="w-full border p-3 rounded-xl" />
-            <input type="file" className="w-full border p-3 rounded-xl" />
-            <input type="file" className="w-full border p-3 rounded-xl" />
-            <input type="file" className="w-full border p-3 rounded-xl" />
-            <input type="file" className="w-full border p-3 rounded-xl" />
-          </div>
+          <input type="file" className="mt-4" />
+          <input type="file" className="mt-4" />
+          <input type="file" className="mt-4" />
         </div>
 
 
-        <div className="bg-white rounded-3xl p-6 shadow-xl">
-
-          <h2 className="text-2xl font-bold text-purple-600">
-            ⚙️ 2. Generation Settings
+        <div className="bg-white rounded-3xl p-6 shadow">
+          <h2 className="text-2xl font-bold">
+            2. Generation Settings
           </h2>
 
-          <select className="mt-5 w-full p-3 rounded-xl border">
+          <select className="mt-4 p-3 w-full rounded">
             <option>Honest Review</option>
             <option>Product Selling</option>
             <option>Storytelling</option>
           </select>
 
-          <select className="mt-5 w-full p-3 rounded-xl border">
+          <select className="mt-4 p-3 w-full rounded">
             <option>Taglish</option>
             <option>English</option>
             <option>Filipino</option>
           </select>
-          <label className="flex items-center justify-between mt-6 bg-pink-100 p-4 rounded-xl">
-            <span className="font-bold">
-              💬 Dialogue ON
-            </span>
 
-            <input
-              type="checkbox"
-              defaultChecked
-              className="w-5 h-5"
-            />
+          <label className="flex items-center gap-3 mt-5">
+            <input type="checkbox" defaultChecked />
+            Dialogue ON
           </label>
-
-          <button
-            onClick={generate}
-            className="mt-8 w-full rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white text-xl font-bold p-5 shadow-lg"
-          >
-            ✨ Analyze & Generate ➜
-          </button>
 
         </div>
 
       </div>
 
 
-      <section className="bg-white rounded-3xl p-6 mt-8 shadow-xl">
+      <button
+        onClick={generate}
+        className="mt-10 w-full rounded-full bg-gradient-to-r from-pink-500 to-blue-400 text-white text-2xl p-5"
+      >
+        ✨ Analyze & Generate ➜
+      </button>
 
-        <h2 className="text-3xl font-black text-purple-600">
+
+      <section className="bg-white rounded-3xl p-6 mt-8">
+
+        <h2 className="text-3xl font-bold text-purple-600">
           ✨ Generated Prompt
         </h2>
 
-        <div className="mt-4 bg-purple-50 rounded-2xl p-5 min-h-32">
+        <p className="mt-4">
           {prompt || "Your generated prompt will appear here"}
-        </div>
-
-      </section>
-
-
-      <footer className="text-center mt-10 text-purple-600 font-bold">
-        Create ✦ Imagine ✦ Sell ✦ Repeat ♡
-      </footer>
-
-    </main>
-  );
-}
-            <span className="font-bold">
-              💬 Dialogue ON
-            </span>
-
-            <input
-              type="checkbox"
-              defaultChecked
-              className="w-5 h-5"
-            />
-          </label>
-
-          <button
-            onClick={generate}
-            className="mt-8 w-full rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white text-xl font-bold p-5 shadow-lg"
-          >
-            ✨ Analyze & Generate ➜
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <section className="bg-white rounded-3xl p-6 mt-8 shadow-xl">
-
-        <h2 className="text-3xl font-black text-purple-600">
-          ✨ Generated Prompt
-        </h2>
-
-        <div className="mt-4 bg-purple-50 rounded-2xl p-5 min-h-32">
-          {prompt || "Your generated prompt will appear here"}
-        </div>
+        </p>
 
       </section>
 
