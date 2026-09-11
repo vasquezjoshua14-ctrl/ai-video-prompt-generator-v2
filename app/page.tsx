@@ -112,7 +112,6 @@ export default function Home() {
     </main>
   );
 }
-          <label className="flex items-center justify-between mt-6 bg-pink-100 p-4 rounded-xl">
             <span className="font-bold">
               💬 Dialogue ON
             </span>
