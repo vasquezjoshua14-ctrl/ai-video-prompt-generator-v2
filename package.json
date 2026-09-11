@@ -1,6 +1,7 @@
 {
   "name": "ai-video-prompt-generator-v2",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,11 +12,11 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "openai": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
   }
-}
-"devDependencies": {
-  "typescript": "^5",
-  "@types/node": "^22",
-  "@types/react": "^19",
-  "@types/react-dom": "^19"
 }
