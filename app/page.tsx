@@ -68,3 +68,91 @@ export default function Home() {
             <option>English</option>
             <option>Filipino</option>
           </select>
+          <label className="flex items-center justify-between mt-6 bg-pink-100 p-4 rounded-xl">
+            <span className="font-bold">
+              💬 Dialogue ON
+            </span>
+
+            <input
+              type="checkbox"
+              defaultChecked
+              className="w-5 h-5"
+            />
+          </label>
+
+          <button
+            onClick={generate}
+            className="mt-8 w-full rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white text-xl font-bold p-5 shadow-lg"
+          >
+            ✨ Analyze & Generate ➜
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <section className="bg-white rounded-3xl p-6 mt-8 shadow-xl">
+
+        <h2 className="text-3xl font-black text-purple-600">
+          ✨ Generated Prompt
+        </h2>
+
+        <div className="mt-4 bg-purple-50 rounded-2xl p-5 min-h-32">
+          {prompt || "Your generated prompt will appear here"}
+        </div>
+
+      </section>
+
+
+      <footer className="text-center mt-10 text-purple-600 font-bold">
+        Create ✦ Imagine ✦ Sell ✦ Repeat ♡
+      </footer>
+
+    </main>
+  );
+}
+          <label className="flex items-center justify-between mt-6 bg-pink-100 p-4 rounded-xl">
+            <span className="font-bold">
+              💬 Dialogue ON
+            </span>
+
+            <input
+              type="checkbox"
+              defaultChecked
+              className="w-5 h-5"
+            />
+          </label>
+
+          <button
+            onClick={generate}
+            className="mt-8 w-full rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white text-xl font-bold p-5 shadow-lg"
+          >
+            ✨ Analyze & Generate ➜
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <section className="bg-white rounded-3xl p-6 mt-8 shadow-xl">
+
+        <h2 className="text-3xl font-black text-purple-600">
+          ✨ Generated Prompt
+        </h2>
+
+        <div className="mt-4 bg-purple-50 rounded-2xl p-5 min-h-32">
+          {prompt || "Your generated prompt will appear here"}
+        </div>
+
+      </section>
+
+
+      <footer className="text-center mt-10 text-purple-600 font-bold">
+        Create ✦ Imagine ✦ Sell ✦ Repeat ♡
+      </footer>
+
+    </main>
+  );
+}
