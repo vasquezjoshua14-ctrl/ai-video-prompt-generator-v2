@@ -13,3 +13,9 @@
     "openai": "^5.0.0"
   }
 }
+"devDependencies": {
+  "typescript": "^5",
+  "@types/node": "^22",
+  "@types/react": "^19",
+  "@types/react-dom": "^19"
+}
