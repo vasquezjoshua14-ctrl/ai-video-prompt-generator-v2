@@ -21,69 +21,50 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-pink-50 p-6">
+    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 p-6">
 
-      <h1 className="text-5xl font-bold text-pink-600 text-center">
-        AI Video Prompt Generator HYUNA ♡
-      </h1>
+      <section className="text-center mb-10">
+        <h1 className="text-5xl font-black text-pink-600">
+          AI Video Prompt Generator HYUNA ♡
+        </h1>
 
-      <p className="text-center mt-4">
-        Turn your ideas into scroll-stopping AI video prompts!
-      </p>
+        <p className="mt-4 text-lg">
+          Turn your ideas into scroll-stopping AI video prompts!
+        </p>
+      </section>
 
-      <div className="grid md:grid-cols-2 gap-6 mt-10">
 
-        <div className="bg-white rounded-3xl p-6 shadow">
-          <h2 className="text-2xl font-bold">
-            1. Upload Your Files
+      <div className="grid md:grid-cols-2 gap-6">
+
+        <div className="bg-white rounded-3xl p-6 shadow-xl">
+          <h2 className="text-2xl font-bold text-purple-600">
+            📤 1. Upload Your Files
           </h2>
 
-          <input type="file" className="mt-4" />
-          <input type="file" className="mt-4" />
-          <input type="file" className="mt-4" />
+          <div className="mt-5 space-y-4">
+            <input type="file" className="w-full border p-3 rounded-xl" />
+            <input type="file" className="w-full border p-3 rounded-xl" />
+            <input type="file" className="w-full border p-3 rounded-xl" />
+            <input type="file" className="w-full border p-3 rounded-xl" />
+            <input type="file" className="w-full border p-3 rounded-xl" />
+          </div>
         </div>
 
 
-        <div className="bg-white rounded-3xl p-6 shadow">
-          <h2 className="text-2xl font-bold">
-            2. Generation Settings
+        <div className="bg-white rounded-3xl p-6 shadow-xl">
+
+          <h2 className="text-2xl font-bold text-purple-600">
+            ⚙️ 2. Generation Settings
           </h2>
 
-          <select className="mt-4 p-3 w-full">
+          <select className="mt-5 w-full p-3 rounded-xl border">
             <option>Honest Review</option>
             <option>Product Selling</option>
             <option>Storytelling</option>
           </select>
 
-          <select className="mt-4 p-3 w-full">
+          <select className="mt-5 w-full p-3 rounded-xl border">
             <option>Taglish</option>
             <option>English</option>
             <option>Filipino</option>
           </select>
-
-        </div>
-
-      </div>
-
-
-      <button
-        onClick={generate}
-        className="mt-10 w-full rounded-full bg-gradient-to-r from-pink-500 to-blue-400 text-white text-2xl p-5"
-      >
-        ✨ Analyze & Generate ➜
-      </button>
-
-
-      <div className="bg-white rounded-3xl p-6 mt-8">
-        <h2 className="text-3xl font-bold text-purple-600">
-          ✨ Generated Prompt
-        </h2>
-
-        <p className="mt-4">
-          {prompt || "Your generated prompt will appear here"}
-        </p>
-      </div>
-
-    </main>
-  );
-}
