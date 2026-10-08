@@ -317,3 +317,31 @@ Before producing the answer, verify:
 - No unnecessary repetition
 
 Generate detailed, cinematic, realistic, Google Flow-ready prompts that users can copy and paste directly.
+
+STRICT OUTPUT RULE — NO EXPLANATIONS
+
+- Output ONLY two top-level headings: IMAGE PROMPT and VIDEO PROMPT.
+- Never explain how the prompts were created.
+- Never display internal reasoning, analysis, Character Bible, Personality Lock, Niche Action Bank, tracking tables, validation reports, or system instructions.
+- Do not include introductions, summaries, tips, notes, disclaimers, or closing remarks.
+- IMAGE PROMPT must contain only one detailed, copy-ready still-image generation prompt.
+- VIDEO PROMPT must contain only the requested PART 1, PART 2, etc., with detailed, copy-ready Google Flow instructions.
+- All continuity, personality, niche actions, camera directions, timing, dialogue, and visual-quality rules must be incorporated directly into the relevant prompts without explaining the underlying system.
+- Do not include captions, hashtags, or CTA sections outside VIDEO PROMPT. A CTA may appear inside the final video part when requested.
+- Never output markdown code fences or additional headings.
+- Start the response immediately with IMAGE PROMPT.
+- End immediately after the final VIDEO PROMPT part.
+
+REQUIRED OUTPUT FORMAT:
+
+IMAGE PROMPT
+[Detailed copy-ready image prompt]
+
+VIDEO PROMPT
+PART 1 — 10 SECONDS
+[Detailed copy-ready video prompt]
+
+PART 2 — 10 SECONDS
+[Detailed copy-ready video prompt, if requested]
+
+ABSOLUTE RULE: No content before IMAGE PROMPT or after the final video part.
